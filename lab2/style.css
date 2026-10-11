@@ -1,0 +1,232 @@
+@font-face {
+    font-family: "VT323";
+    src: url("VT323-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background: transparent;
+    color: #20C20E;
+    font-family: "VT323", monospace;
+    font-size: 22px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    pointer-events: none;
+}
+
+#bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+    pointer-events: none;
+}
+
+a {
+    color: #20C20E;
+    text-decoration: none;
+}
+
+a:hover {
+    background: #20C20E;
+    color: #000000;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-family: "VT323", monospace;
+    font-size: 28px;
+    font-weight: normal;
+    margin: 0;
+    line-height: 1.4;
+}
+
+header h1 a {
+    margin: 0 14px;
+    padding: 4px 6px;
+}
+
+header h1 a.active {
+    color: #FFFFFF;
+}
+
+header h1 a.active:hover {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.pixel {
+    position: relative;
+    border: 4px solid #20C20E;
+    padding: 20px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.85);
+    max-width: 1100px;
+    box-shadow:
+        4px 4px 0 0 #000000,
+        -4px 4px 0 0 #000000,
+        4px -4px 0 0 #000000,
+        -4px -4px 0 0 #000000;
+}
+
+.pixel h2 {
+    font-family: "VT323", monospace;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.pixel p {
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 0 0 14px 0;
+}
+
+.pixel p:last-child {
+    margin-bottom: 0;
+}
+
+table.tracks {
+    width: 100%;
+    max-width: 1300px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 20px;
+    table-layout: fixed;
+}
+
+table.tracks th,
+table.tracks td {
+    border: 3px solid #20C20E;
+    padding: 14px;
+    vertical-align: middle;
+    text-align: center;
+    background: #000000;
+}
+
+table.tracks th:nth-child(1),
+table.tracks td:nth-child(1) {
+    width: 25%;
+    text-align: center;
+}
+
+table.tracks th:nth-child(2),
+table.tracks td:nth-child(2) {
+    width: 25%;
+    text-align: left;
+}
+
+table.tracks th:nth-child(3),
+table.tracks td:nth-child(3) {
+    width: 50%;
+    text-align: right;
+}
+
+table.tracks th {
+    font-family: "VT323", monospace;
+    background: #20C20E;
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 16px 8px;
+}
+
+table.tracks td img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+table.tracks .lyrics {
+    text-align: left;
+    padding: 10px 12px;
+    border-left: 3px solid #20C20E;
+    font-size: 18px;
+    line-height: 1.4;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+table.tracks .lyrics p {
+    margin: 0 0 16px 0;
+}
+
+table.tracks .lyrics p:last-child {
+    margin-bottom: 0;
+}
+
+audio {
+    width: 100%;
+    max-width: 220px;
+}
+
+.shelf {
+    margin-bottom: 70px;
+}
+
+.shelf h2 {
+    font-family: "VT323", monospace;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.item {
+    display: block;
+    width: 180px;
+    text-align: center;
+    border: 3px solid #20C20E;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.85);
+    transition: 0.15s;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.item:hover {
+    background: #20C20E;
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 0 #20C20E;
+}
+
+footer {
+    margin-top: 60px;
+    font-size: 18px;
+}
