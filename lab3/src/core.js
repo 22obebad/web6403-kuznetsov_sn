@@ -22,8 +22,9 @@ function even() {
  * @param {*} n
  */
 function sumTo(n) {
+    if (!Number.isInteger(n) || n < 0) return undefined;
     let sum = 0;
-    for (let i = 0; i <= n; i++){
+    for (let i = 0; i <= n; i++) {
         sum += i;
     }
     return sum;
@@ -34,19 +35,19 @@ function sumTo(n) {
  * @param {*} n
  */
 function recSumTo(n) {
-    if (n === 1){
-        return 1
-    }
-    return n + recSumTo(n-1)
+    if (!Number.isInteger(n) || n < 0) return undefined;
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    return n + recSumTo(n - 1);
 }
-
 /**
  * Напишите функцию, считающую факториал заданного числа
  * @param {*} n
  */
 function factorial(n) {
+    if (!Number.isInteger(n) || n < 0) return undefined;
     let f = 1;
-    for (let i = 1; i <= n; i++){
+    for (let i = 1; i <= n; i++) {
         f *= i;
     }
     return f;
@@ -65,11 +66,12 @@ function isBinary(n) {
  * @param {*} n
  */
 function fibonacci(n) {
-    switch(n){
-    case 0: return 0;
-    case 1: return 1;
-    case 2: return 1;
-    default: return fibonacci(n-2)+fibonacci(n-1);
+    if (!Number.isInteger(n) || n < 0) return undefined;
+    switch(n) {
+        case 0: return 0;
+        case 1: return 1;
+        case 2: return 1;
+        default: return fibonacci(n-2) + fibonacci(n-1);
     }
 }
 
