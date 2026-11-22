@@ -1,0 +1,92 @@
+/* Цвета сайта заданы только через CSS-переменные */
+:root {
+  --green: #20c20e;
+  --black: #000000;
+  --white: #ffffff;
+  --panel: rgba(0, 0, 0, 0.85);
+  --overlay: rgba(0, 0, 0, 0.6);
+}
+@font-face {
+  font-family: "VT323";
+  src: url("VT323-Regular.ttf") format("truetype");
+}
+* { box-sizing: border-box; }
+html { background: var(--black); }
+.site {
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  color: var(--green);
+  font: 22px/1.4 "VT323", monospace;
+  text-align: center;
+}
+.site__background, .site__overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.site__background { object-fit: cover; z-index: -2; }
+.site__overlay { background: var(--overlay); z-index: -1; }
+a { color: var(--green); text-decoration: none; }
+a:hover { color: var(--black); background: var(--green); }
+.header { margin-bottom: 40px; }
+.header__nav { font-size: 28px; font-weight: normal; margin: 0; }
+.header__link { display: inline-block; padding: 4px 6px; margin: 0 10px; }
+/* ЛР4: единственная CSS-анимация — белое свечение активной страницы */
+.header__link--active {
+  color: var(--white);
+  animation: active-glow 2s ease-in-out infinite;
+}
+@keyframes active-glow {
+  0%, 100% { text-shadow: 0 0 2px var(--white); }
+  50% { text-shadow: 0 0 12px var(--white), 0 0 22px var(--white); }
+}
+.header__link--active:hover { background: var(--white); color: var(--black); }
+.main { max-width: 1300px; margin: auto; }
+/* ЛР4: Flexbox на главной странице */
+.main--flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.info, .contact { border: 4px solid var(--green); background: var(--panel); }
+.info {
+  flex: 1 1 400px;
+  max-width: 600px;
+  padding: 20px;
+}
+.info__title, .shelf__title { font-size: 26px; font-weight: normal; }
+.info__text { font-size: 20px; }
+/* ЛР4: Grid на странице resonance */
+.main--grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.shelf { min-width: 0; padding: 12px; border: 3px solid var(--green); background: var(--panel); }
+.shelf__items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.shelf__item { min-width: 0; border: 3px solid var(--green); padding: 8px; }
+.shelf__image { display: block; width: 100%; aspect-ratio: 2/3; object-fit: cover; }
+/* Таблица из ЛР2 сохранена: три способа выравнивания */
+.tracks { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 20px; }
+.tracks th, .tracks td { border: 3px solid var(--green); padding: 14px; vertical-align: middle; background: var(--black); }
+.tracks th { background: var(--green); color: var(--black); }
+.tracks th:nth-child(1), .tracks td:nth-child(1) { width: 25%; text-align: center; }
+.tracks th:nth-child(2), .tracks td:nth-child(2) { width: 25%; text-align: left; }
+.tracks th:nth-child(3), .tracks td:nth-child(3) { width: 50%; text-align: right; }
+.tracks__cover { width: 120px; height: 120px; object-fit: cover; display: block; margin: 0 auto 10px; }
+.tracks__audio { width: 100%; max-width: 220px; }
+.tracks__lyrics { text-align: left; border-left: 3px solid var(--green); padding: 10px; max-height: 400px; overflow-y: auto; font-size: 18px; }
+.tracks__verse { margin: 0 0 16px; }
+/* ЛР4: форма */
+.contact { max-width: 600px; margin: 0 auto; padding: 25px; }
+.contact__title { font-size: 30px; font-weight: normal; }
+.contact__form { display: flex; flex-direction: column; gap: 12px; text-align: left; }
+.contact__label--checkbox { display: flex; align-items: center; gap: 8px; }
+.contact__field, .contact__button { font: inherit; padding: 8px; border: 2px solid var(--green); background: var(--black); color: var(--green); }
+.contact__button { cursor: pointer; }
+.contact__button:hover { background: var(--green); color: var(--black); }
+.footer { margin-top: 60px; font-size: 18px; }
+@media (max-width: 700px) {
+  .main--grid { grid-template-columns: 1fr; }
+  .tracks { table-layout: auto; }
+  .tracks th, .tracks td { padding: 5px; }
+  .tracks__audio { max-width: 150px; }
+  .tracks__cover { width: 70px; height: 70px; }
+}

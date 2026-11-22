@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>22obebad — contact</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body class="site">
+<img src="background.gif" class="site__background" alt="">
+<div class="site__overlay"></div>
+<header class="header"><h1 class="header__nav">
+<a href="index.html" class="header__link">22obebad</a>
+<a href="page1.html" class="header__link">crypto</a>
+<a href="page2.html" class="header__link">resonance</a>
+<a href="contact.html" class="header__link header__link--active">contact</a>
+</h1></header>
+<main class="main">
+<section class="contact">
+<h2 class="contact__title">contact</h2>
+<form class="contact__form" id="contact-form">
+<label class="contact__label" for="name">name</label>
+<input class="contact__field" type="text" id="name" name="name" required>
+<label class="contact__label" for="email">email</label>
+<input class="contact__field" type="email" id="email" name="email" required>
+<label class="contact__label" for="message">message</label>
+<textarea class="contact__field" id="message" name="message" rows="4" required></textarea>
+<label class="contact__label contact__label--checkbox"><input type="checkbox" name="agree" required> agree</label>
+<button class="contact__button" type="submit">send</button>
+</form>
+</section>
+</main>
+<footer class="footer"><p>© 22obebad, 2026</p></footer>
+</body></html>
